@@ -1,0 +1,12 @@
+.tail-large{
+	width:620px;
+	height:160px;
+}
+
+a{ color: #dc1c1b;}
+a:hover, a:focus { color: #333;}
+h1, .text-rotater span, footer h3, .font-large, ul.tabs li a, .hero-unit h1, .testimonials h3 span, #portolfio-filter a:hover, #portolfio-filter a.active{color:#dc1c1b;}
+.sf-menu ul, .sf-menu > li.current > a, .sf-menu > li > a:hover, .sf-menu > li.sfHover > a, .sf-menu > li.current > a, .top-bar, .warp-services:hover h2 .wrap-icon, .head-style span, .owl-theme .owl-controlls.clickable .owl-buttons div:hover, .portfolio_zoom:hover, .portfolio_link:hover, .accordion-heading .accordion-toggle.active, .copyrights, #services-graph li span, ul.tabs li.active a, ul.tabs li a:hover, .dropcap2, #contact_form .send-btn, .pricingtable .top, .owl-theme .owl-controlls .owl-page.active span, .owl-theme .owl-controlls.clickable .owl-page:hover span, .pagination ul > li > a:hover, .pagination ul > li > a:focus, .pagination ul > .active > a, .pagination ul > .active > span, .comment-txt .reply-btn a:hover, .callout a.my-btn, .flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover, .sf-menu ul{background-color:#dc1c1b;}
+.head-style2:after{border-bottom:2px solid #fce0b0;}
+.sf-menu ul li{border-bottom:1px solid #fff;}
+ul.tabs li.active a, ul.tabs li a:hover{border:1px solid #dc1c1b;}

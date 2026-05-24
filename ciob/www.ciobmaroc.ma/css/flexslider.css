@@ -1,0 +1,315 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+ 
+/* Browser Resets */
+.flex-container a:active, .flexslider a:active, .flex-container a:focus, .flexslider a:focus {
+	outline: none;
+}
+.slides, .flex-control-nav, .flex-direction-nav {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {
+	margin: 0;
+	padding: 0;
+}
+.flexslider .slides > li {
+	display: none;
+	-webkit-backface-visibility: hidden;
+} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {
+	width: 100%;
+	display: block;
+}
+.flex-pauseplay span {
+	text-transform: capitalize;
+}
+/* Clearfix for the .slides element */
+.slides:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+html[xmlns] .slides {
+	display: block;
+}
+* html .slides {
+	height: 1%;
+}
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {
+	display: block;
+}
+/* FlexSlider Default Theme
+*********************************/
+.flexslider.fullwidth{
+	margin:0;
+	padding-top:0;
+	min-height: 450px;
+}
+.flexslider {
+	margin:0;
+	position: relative;
+	zoom: 1;
+	padding:0
+	min-height: 130px;
+}
+.flexslider.mini-slider{
+	margin:0 0 40px 0;
+	padding:0;
+}
+.flexslider .shadow-wrapper:before, .flexslider .shadow-wrapper:after{
+	bottom:16px;
+}
+.flexslider.no-padding{
+	padding:0;
+}
+.flexslider .shadow-wrapper{
+	margin:0;
+}
+.flexslider .shadow-wrapper:before, .flexslider .shadow-wrapper:after {
+	-webkit-box-shadow: 0 7px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 7px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 7px 5px rgba(0, 0, 0, 0.5);
+	z-index: -1;
+}
+.flex-viewport {
+	max-height: 2000px;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	transition: all 1s ease;
+}
+.loading .flex-viewport {
+	max-height: 500px;
+}
+.flexslider .slides {
+	zoom: 1;
+}
+.flexslider.fullwidth .slides .container {
+	height:1px;
+}
+#flexslider-loader {
+    background: url(https://www.ciobmaroc.ma/images/loading.gif) no-repeat scroll center center #FFF;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99999;
+	min-height:450px;
+}/*
+.loading {
+    background: url(../images/loading.gif) no-repeat scroll center center transparent;
+    margin: 0 auto;
+    min-height: 548px;
+}*/
+.fullwidth .flex-caption{
+	bottom:150px;
+}
+.flex-caption {
+	padding: 2%;
+	margin: 0;
+	left:140x;
+	bottom:50px;
+	color: #fff;
+	text-shadow:0 1px 0 rgba(0,0,0, 0.7);
+	font-size: 12px;
+	line-height: 18px;
+	zoom: 1;
+	position:relative;
+}
+.flex-caption h2 {
+	color:#FFF;
+	font-size:24px;
+	text-transform:capitalize;
+	background: rgba(0,194,165,.9);
+	padding:16px;
+	font-weight:600;
+	display:inline-block;
+	margin:0;
+	text-shadow:0 1px 0 rgba(0,0,0, 0.7);
+}
+.flex_subtitle h3{
+	color:#FFF;
+	font-size:20px;
+	margin:0;
+	text-transform:capitalize;
+	background: rgba(48,48,48,.8);
+	padding:20px;
+}
+.flex-caption .slide-txt {
+	color:#FFF;
+	font-size:14px;
+	background: rgba(0,0,0,.8);
+	padding:10px;
+}
+/* Direction Nav */
+.flex-direction-nav a {
+	margin:0;
+	color:#FFF;
+	display: inline-block;
+	background: #303030;
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	opacity: 0;
+	z-index:10;
+	padding:10px 15px;
+	font-size:24px;
+	margin:-45px 0 0 0;
+	-webkit-transition: all 0.35s ease;
+	-moz-transition: all 0.35s ease;
+	-o-transition: all 0.35s ease;
+	transition: all 0.35s ease;
+}
+.flex-direction-nav .flex-next {
+	background-position: 100% 0;
+	right: -50px;
+}
+.flex-direction-nav .flex-prev {
+	left: -50px;
+}
+.flexslider:hover .flex-next {
+	opacity: 1;
+	right: -10px;
+}
+.flexslider:hover .flex-prev {
+	opacity: 1;
+	left: -10px;
+}
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {
+	opacity: 1;
+	color:#FFF;
+}
+.flex-caption .text {
+    bottom: 40px;
+    position: absolute;
+}
+.flex-direction-nav .flex-disabled {
+	opacity: .3!important;
+	filter:alpha(opacity=30);
+	cursor: default;
+}
+/* Control Nav */
+.flex-control-nav {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left:0;
+	text-align:center;
+}
+.flex-control-nav li {
+	padding: 12px 2px 10px;
+	display: inline-block;
+	zoom: 1;
+*display: inline;
+}
+.flex-control-paging li a {
+	width: 10px;
+	height: 10px;
+	display: block;
+	background: url(https://www.ciobmaroc.ma/images/slider/slider_dots.png) no-repeat top left;
+	cursor: pointer;
+	text-indent: -9999px;
+	transition:none;
+}
+.flex-control-paging li a:hover {
+	background: url(https://www.ciobmaroc.ma/images/slider/slider_dots.png) no-repeat top right;
+}
+.flex-control-paging li a.flex-active {
+	cursor: default;
+	background: url(https://www.ciobmaroc.ma/images/slider/slider_dots.png) no-repeat top right;
+}
+.flex-control-thumbs {
+	margin: 5px 0 0;
+	position: static;
+	overflow: hidden;
+}
+.flex-control-thumbs li {
+	width: 25%;
+	float: left;
+	margin: 0;
+}
+.flex-control-thumbs img {
+	width: 100%;
+	display: block;
+	opacity: .7;
+	cursor: pointer;
+}
+.flex-control-thumbs img:hover {
+	opacity: 1;
+}
+.flex-control-thumbs .flex-active {
+	opacity: 1;
+	cursor: default;
+}
+ @media screen and (max-width: 860px) {
+.flex-direction-nav .flex-prev {
+	opacity: 1;
+	left: 0;
+}
+.flex-direction-nav a{
+	margin:-15px 0 0 0;
+}
+.flexslider:hover .flex-next {
+	opacity: 1;
+	right: 0;
+}
+.flexslider:hover .flex-prev {
+	opacity: 1;
+	left: 0;
+}
+.flex-direction-nav .flex-next {
+	opacity: 1;
+	right: 0;
+}
+
+}
+
+/* All Mobile Sizes (devices and browser) */
+	@media only screen and (max-width: 767px) {
+		.flex-caption{display:none;}
+		.fullwidth .flex-caption{bottom:20px; left:0;}
+		.flex-caption h2{font-size:16px;}
+		.flex-caption h3{font-size:14px; line-height:inherit}
+		}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	.fullwidth .flex-caption{bottom:20px; left:0;}
+	.fullwidth #flexslider-loader, .flexslider.fullwidth{min-height: 228px;}
+	
+	}
+
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+		.loading{min-height:inherit;}
+		.fullwidth #flexslider-loader, .flexslider.fullwidth{min-height: 205px;}
+		
+		}
+		@media only screen and (max-width: 479px) {
+		
+		.fullwidth .flex-caption {bottom:20px; left:0;}
+		.flex-caption{display:none;}
+		.flex-caption h2{font-size:14px; line-height:inherit}
+		.flex-caption h3{font-size:12px; line-height:inherit}.loading{min-height:inherit;}
+		.fullwidth #flexslider-loader, .flexslider.fullwidth{min-height: 124px;}
+		
+	}

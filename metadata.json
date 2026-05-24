@@ -1,0 +1,6 @@
+{
+  "name": "CIOB Maroc",
+  "description": "الموقع الرسمي لشركة صناعة الأواني المنزلية والألومنيوم CIOB بمدينة فاس بالمغرب.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
