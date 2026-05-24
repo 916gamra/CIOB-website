@@ -5,14 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CIOB Maroc | Fabricant d'articles ménagers Titanic®</title>
     <meta name="description" content="Découvrez CIOB Maroc, leader de la fabrication d'articles ménagers en acier inoxydable, aluminium et anti-adhésif sous la marque Titanic® à Fès depuis 1996." />
-    <!-- Preconnect to Google Fonts -->
+    
+    <!-- PWA Settings -->
+    <meta name="theme-color" content="#0e7490" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/images/logo-ciob.jpg" />
+    
+    <!-- Resource Hints: Preconnect to external services for fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    
+    <!-- Resource Hints: Preload critical brand assets for instantaneous loading -->
+    <link rel="preload" href="/images/logo.png" as="image" />
+    <link rel="preload" href="/images/slider/autocuiseur-titanic-usine-ciob-fes-maroc.jpg" as="image" />
+    
     <link rel="shortcut icon" href="/favicon.ico" />
   </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-cyan-600 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Progressive Web App Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker successfully registered on scope:', reg.scope))
+            .catch(err => console.error('Service Worker registration failed:', err));
+        });
+      }
+    </script>
   </body>
 </html>
